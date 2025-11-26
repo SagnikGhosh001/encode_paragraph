@@ -12,12 +12,12 @@ const generateRandomChar = () => {
 };
 
 const generateRandomString = (length) => {
-  const string = [];
+  const randomString = [];
   for (let term = 0; term <= length; term++) {
-    string.push(generateRandomChar());
+    randomString.push(generateRandomChar());
   }
 
-  return string.join("");
+  return randomString.join("");
 };
 
 const addPrefixAndSuffix = (text) => {
@@ -26,11 +26,11 @@ const addPrefixAndSuffix = (text) => {
 
   for (const string of [...text]) {
     const randomNumber = randomNumberBetween(0, string.length);
-    const firstPart = string.slice(0, randomNumber);
-    encodedElements.push(`${index},${firstPart}_`);
+    const firstSegment = string.slice(0, randomNumber);
+    encodedElements.push(`${index},${firstSegment}_`);
     index++;
-    const secondPart = string.slice(randomNumber);
-    encodedElements.push(`${index},${secondPart}_`);
+    const secondSegment = string.slice(randomNumber);
+    encodedElements.push(`${index},${secondSegment}_`);
     index++;
   }
 
@@ -43,12 +43,12 @@ const parseInput = (input) => {
 };
 
 const encodeData = (text) => {
-  const suffelText = text.sort(() => Math.random() - 0.5);
+  const suffeldText = text.sort(() => Math.random() - 0.5);
   const encodedText = [];
-  for (const element of suffelText) {
+  for (const text of suffeldText) {
     const randomLength = randomNumberBetween(0, 20);
     const randomString = generateRandomString(randomLength);
-    encodedText.push(randomString.concat(" ", element));
+    encodedText.push(randomString.concat(" ", text));
   }
 
   return encodedText.join("");
